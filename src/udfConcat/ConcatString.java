@@ -16,18 +16,18 @@ public class ConcatString extends UDF{
 	
 //If the string is the last element then concatenate with previous string , do not concat with separator
 		if(init == input.length-1){		
-		result=result.concat(input[init]);
+		result=result.concat(input[init]);//concatenating with last element of string array and returning out of  loop
 				continue;
 		}
 //else perform concatenate with separator
 		else
 		{
-		sepConcat = input[init].concat(sep);	
-		result=result.concat(sepConcat);
+		sepConcat = input[init].concat(sep);//concatenating each element with separator sep	
+		result=result.concat(sepConcat);//concatenating sepConcat with result
 		}
 		
 	}
-	//Return final result
+	//Return final result as concatenation output
 	return result;
 	
 	}
