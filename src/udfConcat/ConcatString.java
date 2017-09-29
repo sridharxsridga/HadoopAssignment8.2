@@ -1,0 +1,37 @@
+/*
+ * HIVE UDF to perform the operation of CONCAT_WS(String sep,  array<String>)
+ */
+
+package udfConcat;
+
+import org.apache.hadoop.hive.ql.exec.UDF;
+
+public class ConcatString extends UDF{
+	
+	public String evaluate(String sep, String... input){
+		String sepConcat=" "; // Declaring sepConcat
+		String result =" ";//Declaring result to hold the final result
+//For loop till the number of string specified
+		for(int init=0;init <input.length;init++){
+	
+//If the string is the last element then concatenate with previous string , do not concat with separator
+		if(init == input.length-1){		
+		result=result.concat(input[init]);
+				continue;
+		}
+//else perform concatenate with separator
+		else
+		{
+		sepConcat = input[init].concat(sep);	
+		result=result.concat(sepConcat);
+		}
+		
+	}
+	//Return final result
+	return result;
+	
+	}
+
+
+}
+
